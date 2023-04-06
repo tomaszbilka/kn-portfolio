@@ -9,6 +9,8 @@ import Details from './components/Details';
 import ErrorPage from './components/Errors/ErrorPage';
 import Home from './pages/Home';
 
+import './main.css';
+
 const router = createBrowserRouter([
   {
     path: '/',
