@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { CurrentUserContextProvider } from './context/context';
 import About from './pages/About';
 import App from './App';
 import Contact from './pages/Contact';
@@ -27,7 +28,9 @@ const router = createBrowserRouter([
 
 ReactDOM.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CurrentUserContextProvider>
+      <RouterProvider router={router} />
+    </CurrentUserContextProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
