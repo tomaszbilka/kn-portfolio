@@ -1,5 +1,7 @@
+import ContextTask from '../components/ContextTask/ContextTask';
+
 const Home: React.FC = () => {
-  return <div>Home</div>;
+  return <ContextTask />;
 };
 
 export default Home;
