@@ -15,7 +15,7 @@ const ContextTask: React.FC = () => {
   };
 
   return (
-    <section className={styles.container}>
+    <section className="container">
       <h3>Example of undefined context default vaue</h3>
       <input className={styles.input} type="text" ref={inputRef} />
       <button onClick={setUserNameHandler}>SET</button>

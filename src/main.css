@@ -12,3 +12,21 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  align-items: center;
+  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  width: 80%;
+}

@@ -1,0 +1,24 @@
+.image {
+  background-color: #eceaea;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  padding: 2px 8px;
+}
+
+.loading {
+  color: #3d0879;
+  font-size: 30px;
+}
+
+.error {
+  color: #b64848;
+}
