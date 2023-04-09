@@ -1,0 +1,20 @@
+.controls {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.controls label {
+  margin-left: 6px;
+}
+
+.imgWrapp {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgWrapp img {
+  flex: 0 0 auto;
+  width: 150px;
+}
