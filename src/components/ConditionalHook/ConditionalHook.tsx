@@ -27,7 +27,7 @@ const ConditionalHook: React.FC = () => {
           checked={shouldHookRun}
           id="condition"
           name="condition"
-          onClick={() => setShouldHookRun((prev) => !prev)}
+          onChange={() => setShouldHookRun((prev) => !prev)}
           type="checkbox"
         />
         <label htmlFor="condition">Should hook run?</label>
