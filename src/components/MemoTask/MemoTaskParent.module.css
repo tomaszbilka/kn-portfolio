@@ -1,0 +1,9 @@
+.control {
+  display: flex;
+  margin-top: 10px;
+}
+
+.button {
+  margin-left: 10px;
+  padding: 0 10px;
+}
