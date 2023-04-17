@@ -7,7 +7,7 @@ import styles from './MemoTaskParent.module.css';
 const MemoTaskParent: React.FC = () => {
   const [counter, setCounter] = useState(0);
 
-  const heavyCalculation = useMemo(() => countNumberOfPrimesFromRange(0, 40000), []);
+  const heavyCalculation = useMemo(() => countNumberOfPrimesFromRange(0, 20000), []);
 
   console.log('MemoTaskPARENT - render');
   return (

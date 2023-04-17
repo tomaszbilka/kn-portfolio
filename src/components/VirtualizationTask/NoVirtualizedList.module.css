@@ -1,0 +1,10 @@
+.listContainer {
+  border: 1px solid #000;
+  height: 150px;
+  overflow: auto;
+  width: 500px;
+}
+
+.listElement {
+  height: 35px;
+}
