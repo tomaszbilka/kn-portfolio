@@ -17,7 +17,7 @@ const useFetchData = (): TuseFetchData => {
     try {
       const response = await fetch(`${queryUrl}${query}`);
       if (!response.ok) {
-        throw new Error('Catn fetch image!');
+        throw new Error('Cant fetch image!');
       }
       setData(response.url);
       setIsLoading(false);

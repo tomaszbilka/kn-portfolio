@@ -2,8 +2,8 @@ import useFetchHTTP from '../../hooks/useFetchData';
 
 import styles from './CustomHookTask.module.css';
 
-const url = 'https://source.unsplash.com/random';
-const query = '/300x300';
+const url = 'https://picsum.photos/';
+const query = '300';
 
 const CustomHookTask: React.FC = () => {
   const [sendRequest, data, isLoading, error] = useFetchHTTP();
