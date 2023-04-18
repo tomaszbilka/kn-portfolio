@@ -40,6 +40,7 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     'simple-import-sort/exports': 'error',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {

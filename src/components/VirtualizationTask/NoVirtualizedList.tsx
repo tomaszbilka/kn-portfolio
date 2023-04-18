@@ -4,7 +4,9 @@ const list = Array.from({ length: 1000 }, (_, index) => index);
 
 const NoVirtualizedList: React.FC = () => {
   const listRow = (row: number) => (
-    <li className={styles.listElement}>Row number - {row}</li>
+    <li className={styles.listElement} key={row}>
+      Row number - {row}
+    </li>
   );
 
   return (

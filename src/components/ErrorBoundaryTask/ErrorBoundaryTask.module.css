@@ -1,0 +1,21 @@
+.counter {
+  display: flex;
+  margin: 10px auto;
+}
+
+.counter button {
+  margin-left: 8px;
+}
+
+.error {
+  color: #ff0000;
+}
+
+.info {
+  color: #af5d5d;
+  margin: 7px 0;
+}
+
+details {
+  margin-top: 10px;
+}
