@@ -11,6 +11,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@sentry/react": "^7.48.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-error-boundary": "^4.0.4",
