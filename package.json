@@ -19,6 +19,7 @@
     "react-window": "^1.8.8"
   },
   "devDependencies": {
+    "@sentry/vite-plugin": "^0.7.2",
     "@types/eslint": "^8.37.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/prettier": "^2.7.2",
