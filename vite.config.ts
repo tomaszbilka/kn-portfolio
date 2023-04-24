@@ -19,7 +19,6 @@ export default defineConfig(({ command, mode }) => {
         sourcemaps: {
           assets: './dist/**',
         },
-        release: 'javascript-react',
       }),
     ],
   };
