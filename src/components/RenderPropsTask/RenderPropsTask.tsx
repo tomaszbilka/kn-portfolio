@@ -8,9 +8,23 @@ const RenderPropsTask = () => {
     <section className="container">
       <h3>RenderPropsTask</h3>
       <section className={styles.group}>
-        <Hover render={(hovering) => <Rectangle title="first" isHover={hovering} />} />
-        <Hover render={(hovering) => <Rectangle title="second" isHover={hovering} />} />
-        <Hover render={(hovering) => <Rectangle title="third" isHover={hovering} />} />
+        <Hover
+          render={(hovering, position) => (
+            <Rectangle title="first" isHover={hovering} mousePosition={position} />
+          )}
+        />
+        <br />
+        <Hover
+          render={(hovering, position) => (
+            <Rectangle title="second" isHover={hovering} mousePosition={position} />
+          )}
+        />
+        <br />
+        <Hover
+          render={(hovering, position) => (
+            <Rectangle title="third" isHover={hovering} mousePosition={position} />
+          )}
+        />
       </section>
     </section>
   );
