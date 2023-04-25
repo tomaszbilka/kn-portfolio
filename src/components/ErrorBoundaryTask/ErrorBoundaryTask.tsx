@@ -39,6 +39,7 @@ const CounterWithError: React.FC = () => {
       <button type="button" onClick={increaseCounterHandler}>
         add
       </button>
+      <p>(Error after 5)</p>
     </div>
   );
 };

@@ -1,5 +1,7 @@
+import RenderPropsTask from '../components/RenderPropsTask';
+
 const Contact: React.FC = () => {
-  return <div>Contact</div>;
+  return <RenderPropsTask />;
 };
 
 export default Contact;

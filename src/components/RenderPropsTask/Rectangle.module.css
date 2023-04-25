@@ -1,0 +1,15 @@
+.rectangle {
+  align-items: center;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  border: 1px solid #000;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  margin: 20px 10px;
+  width: 300px;
+}
+
+.rectangle:hover {
+  cursor: pointer;
+}
