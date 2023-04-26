@@ -1,0 +1,8 @@
+.wrap {
+  border-radius: 20px;
+  border: 1px solid #000;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+}

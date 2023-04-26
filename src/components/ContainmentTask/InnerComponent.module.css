@@ -1,0 +1,15 @@
+.wrap {
+  border-radius: 20px;
+  border: 1px solid #000;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.text {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.user {
+  font-weight: bold;
+}

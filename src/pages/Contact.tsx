@@ -1,3 +1,4 @@
+import ContainmentTask from '../components/ContainmentTask';
 import RenderPropsTask from '../components/RenderPropsTask';
 import SpecializedComponentTask from '../components/SpecializedComponentTask';
 
@@ -6,6 +7,7 @@ const Contact: React.FC = () => {
     <>
       <RenderPropsTask />
       <SpecializedComponentTask />
+      <ContainmentTask />
     </>
   );
 };
