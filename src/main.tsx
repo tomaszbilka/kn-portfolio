@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 
 import { CurrentUserContextProvider } from './context/context';
 import * as Sentry from '@sentry/react';
@@ -37,11 +37,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container as HTMLElement);
+
+root.render(
   <React.StrictMode>
     <CurrentUserContextProvider>
       <RouterProvider router={router} />
     </CurrentUserContextProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
 );
