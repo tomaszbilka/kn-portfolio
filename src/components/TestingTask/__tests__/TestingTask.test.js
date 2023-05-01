@@ -1,3 +1,4 @@
+import { debug } from 'jest-preview';
 import { render, screen } from '@testing-library/react';
 import TestingTask from '../TestingTask.tsx';
 
@@ -8,6 +9,8 @@ describe('TestingTask', () => {
       .mockImplementationOnce(() => ({ width: 400, height: 450 }));
 
     render(<TestingTask />);
+
+    debug();
 
     const text = screen.getByText('TestingTask');
     expect(text).toBeInTheDocument();
