@@ -1,6 +1,6 @@
 import { Factory } from 'fishery';
 
-import type { TUser } from '../../ContainmentTask';
+import type { TUser } from '../components/ContainmentTask/ContainmentTask';
 
 export default Factory.define<TUser>(({ sequence }) => ({
   id: sequence,

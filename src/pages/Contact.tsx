@@ -1,4 +1,5 @@
 import ContainmentTask from '../components/ContainmentTask';
+import DateTesting from '../components/DateTesting/DateTesting';
 import RenderPropsTask from '../components/RenderPropsTask';
 import SpecializedComponentTask from '../components/SpecializedComponentTask';
 import TestingTask from '../components/TestingTask/TestingTask';
@@ -10,6 +11,7 @@ const Contact: React.FC = () => {
       <SpecializedComponentTask />
       <ContainmentTask />
       <TestingTask />
+      <DateTesting />
     </>
   );
 };

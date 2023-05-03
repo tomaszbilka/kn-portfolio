@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import factory from './factories/user';
+import factory from '../../../factories/user';
 import InnerComponent from '../InnerComponent';
 import { debug } from 'jest-preview';
 
