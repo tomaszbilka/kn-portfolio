@@ -1,0 +1,28 @@
+.control {
+  margin: 15px 0;
+}
+
+.control button {
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 5px 15px;
+}
+
+.control input {
+  border-bottom-left-radius: 8px;
+  border-radius: none;
+  border-top-left-radius: 8px;
+  padding: 5px 15px;
+}
+
+.todo {
+  padding: 3px 10px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.todo:hover {
+  background-color: red;
+}

@@ -1,5 +1,7 @@
+import OptimisticUI from '../components/OptimisticUI/OptimisticUI';
+
 const About: React.FC = () => {
-  return <div>About</div>;
+  return <OptimisticUI />;
 };
 
 export default About;

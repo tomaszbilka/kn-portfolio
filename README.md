@@ -13,3 +13,7 @@ After the successfull installation of the packages: `yarn dev`
 ## Preview
 
 https://react-advanced-devpath.netlify.app/
+
+## Start json server
+
+`json-server --watch db.json --port 3004`
