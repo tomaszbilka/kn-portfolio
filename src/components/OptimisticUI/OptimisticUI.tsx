@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import useAddNewTodo from '../../hooks/useAddNewTodo';
 import useDeleteTodo from '../../hooks/useDeleteTodo';
@@ -6,14 +6,15 @@ import useGetTodos from '../../hooks/useGetTodos';
 
 import styles from './OptimisticUI.module.css';
 
-type TTodo = {
+export type TTodo = {
   title: string;
   id: number;
 };
 
 const OptimisticUI: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { data, isError, isLoading } = useGetTodos();
+  const [isAddErrorVisible, setIsAddErrorVisible] = useState<boolean>(false);
+  const { data, isError: isFetchError, isLoading } = useGetTodos();
   const { isError: isAddError, mutate: addTodo } = useAddNewTodo();
   const { isError: isDeleteError, mutate: deleteTodo } = useDeleteTodo();
   const queryClient = useQueryClient();
@@ -30,11 +31,21 @@ const OptimisticUI: React.FC = () => {
     deleteTodo(todo.id);
   };
 
-  const error = isError || isAddError || isDeleteError;
-
   const cancelQueryHandler = () => {
     queryClient.cancelQueries({ queryKey: ['todos'] });
   };
+
+  const hideErrorHandler = () => {
+    setIsAddErrorVisible(false);
+  };
+
+  useEffect(() => {
+    if (isAddError) {
+      setIsAddErrorVisible(true);
+    }
+  }, [isAddError]);
+
+  const error = isFetchError || isDeleteError;
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -59,7 +70,19 @@ const OptimisticUI: React.FC = () => {
         <button onClick={addTodoHandler}>ADD</button>
       </div>
       {!isLoading && !error && <ul>{data.map((todo: TTodo) => item(todo))}</ul>}
-      {error && <p>Error occured!!</p>}
+      {error && (
+        <p className={styles.error}>Error occured witch fetching or deleting items!!</p>
+      )}
+      {isAddError && isAddErrorVisible && (
+        <div className={styles.errorContainer}>
+          <p className={styles.error}>
+            Error with adding item, list has its prev state!!
+          </p>
+          <button className={styles.errorBtn} onClick={hideErrorHandler}>
+            x
+          </button>
+        </div>
+      )}
     </section>
   );
 };

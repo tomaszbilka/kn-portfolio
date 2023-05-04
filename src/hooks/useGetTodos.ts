@@ -4,16 +4,9 @@ const useGetTodos = () =>
   useQuery({
     queryKey: ['todos'],
     queryFn: async ({ signal }) => {
-      try {
-        const response = await fetch('http://localhost:3004/todos', { signal });
-        if (!response.ok) {
-          throw new Error('Can not fetch todos!');
-        }
-        const data = await response.json();
-        return data;
-      } catch (error) {
-        return error || 'Sth went wrong!';
-      }
+      const response = await fetch('http://localhost:3004/todos', { signal });
+      const data = await response.json();
+      return data;
     },
   });
 
