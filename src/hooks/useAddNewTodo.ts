@@ -1,9 +1,9 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const useAddNewTodo = () =>
-  useMutation({
+const useAddNewTodo = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
     mutationFn: async (newTodo: { title: string }) => {
-      console.log(newTodo);
       try {
         const response = await fetch('http://localhost:3004/todos', {
           body: JSON.stringify(newTodo),
@@ -19,6 +19,9 @@ const useAddNewTodo = () =>
         return error || 'Can not update todo list!';
       }
     },
+    onSuccess() {
+      queryClient.invalidateQueries({ queryKey: ['todos'] });
+    },
   });
-
+};
 export default useAddNewTodo;

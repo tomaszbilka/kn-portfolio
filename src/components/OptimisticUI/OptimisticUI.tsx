@@ -1,6 +1,7 @@
 import { useRef } from 'react';
-import useGetTodos from '../../hooks/useGetTodos';
 import useAddNewTodo from '../../hooks/useAddNewTodo';
+import useDeleteTodo from '../../hooks/useDeleteTodo';
+import useGetTodos from '../../hooks/useGetTodos';
 
 import styles from './OptimisticUI.module.css';
 
@@ -12,19 +13,22 @@ type TTodo = {
 const OptimisticUI: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { data, isError, isLoading } = useGetTodos();
-  const { mutate } = useAddNewTodo();
+  const { isError: isAddError, mutate: addTodo } = useAddNewTodo();
+  const { isError: isDeleteError, mutate: deleteTodo } = useDeleteTodo();
 
   const addTodoHandler = () => {
     const newTodo = inputRef.current?.value;
     if (newTodo?.length === 0 || newTodo === undefined) return;
-    mutate({ title: newTodo });
+    addTodo({ title: newTodo });
     if (inputRef.current === null) return;
     inputRef.current.value = '';
   };
 
   const removeTodoHandler = (todo: TTodo) => {
-    console.log(todo);
+    deleteTodo(todo.id);
   };
+
+  const error = isError || isAddError || isDeleteError;
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -45,7 +49,8 @@ const OptimisticUI: React.FC = () => {
         <input ref={inputRef} type="text" />
         <button onClick={addTodoHandler}>ADD</button>
       </div>
-      {!isLoading && !isError && <ul>{data.map((todo: TTodo) => item(todo))}</ul>}
+      {!isLoading && !error && <ul>{data.map((todo: TTodo) => item(todo))}</ul>}
+      {error && <p>Error occured!!</p>}
     </section>
   );
 };
