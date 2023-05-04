@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import useAddNewTodo from '../../hooks/useAddNewTodo';
 import useDeleteTodo from '../../hooks/useDeleteTodo';
 import useGetTodos from '../../hooks/useGetTodos';
@@ -15,6 +16,7 @@ const OptimisticUI: React.FC = () => {
   const { data, isError, isLoading } = useGetTodos();
   const { isError: isAddError, mutate: addTodo } = useAddNewTodo();
   const { isError: isDeleteError, mutate: deleteTodo } = useDeleteTodo();
+  const queryClient = useQueryClient();
 
   const addTodoHandler = () => {
     const newTodo = inputRef.current?.value;
@@ -29,6 +31,10 @@ const OptimisticUI: React.FC = () => {
   };
 
   const error = isError || isAddError || isDeleteError;
+
+  const cancelQueryHandler = () => {
+    queryClient.cancelQueries({ queryKey: ['todos'] });
+  };
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -45,6 +51,9 @@ const OptimisticUI: React.FC = () => {
   return (
     <section className="container">
       <h3>OptimisticUI</h3>
+      <button onClick={cancelQueryHandler} className={styles.cancel}>
+        Cancel fetching
+      </button>
       <div className={styles.control}>
         <input ref={inputRef} type="text" />
         <button onClick={addTodoHandler}>ADD</button>
