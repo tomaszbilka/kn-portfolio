@@ -1,5 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
+import type { TTodo } from '../components/OptimisticUI/OptimisticUI';
+
 const useAddNewTodo = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -20,7 +22,7 @@ const useAddNewTodo = () => {
     //optimistic UI
     onMutate: async (newTodo: { title: string }) => {
       await queryClient.cancelQueries({ queryKey: ['todos'] });
-      const prevTodos = queryClient.getQueryData(['todos']);
+      const prevTodos = queryClient.getQueryData<TTodo[]>(['todos']);
       if (prevTodos) {
         queryClient.setQueryData(
           ['todos'],
@@ -32,7 +34,7 @@ const useAddNewTodo = () => {
     //return to prev data if mutation fails
     onError: (err, variables, context) => {
       if (context?.prevTodos) {
-        queryClient.setQueryData(['todos'], context.prevTodos);
+        queryClient.setQueryData<TTodo[]>(['todos'], context.prevTodos);
       }
     },
   });
