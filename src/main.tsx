@@ -1,8 +1,10 @@
 import React, { lazy, Suspense } from 'react';
+import { ApolloProvider } from '@apollo/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import { client } from './graphql/client';
 import { CurrentUserContextProvider } from './context/context';
 import * as Sentry from '@sentry/react';
 import About from './pages/About';
@@ -51,10 +53,12 @@ const queryClient = new QueryClient();
 
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <CurrentUserContextProvider>
-        <RouterProvider router={router} />
-      </CurrentUserContextProvider>
-    </QueryClientProvider>
+    <ApolloProvider client={client}>
+      <QueryClientProvider client={queryClient}>
+        <CurrentUserContextProvider>
+          <RouterProvider router={router} />
+        </CurrentUserContextProvider>
+      </QueryClientProvider>
+    </ApolloProvider>
   </React.StrictMode>,
 );
