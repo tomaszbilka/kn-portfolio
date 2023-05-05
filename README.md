@@ -17,3 +17,9 @@ https://react-advanced-devpath.netlify.app/
 ## Start json server
 
 `json-server --watch db.json --port 3004`
+
+## Start graphQl server
+
+`json-graphql-server db.js --p 3008`
+
+> install globally json and graphql server first
