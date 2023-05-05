@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { CurrentUserContextProvider } from './context/context';
 import * as Sentry from '@sentry/react';
@@ -39,11 +40,14 @@ const router = createBrowserRouter([
 
 const container = document.getElementById('root');
 const root = createRoot(container as HTMLElement);
+const queryClient = new QueryClient();
 
 root.render(
   <React.StrictMode>
-    <CurrentUserContextProvider>
-      <RouterProvider router={router} />
-    </CurrentUserContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <CurrentUserContextProvider>
+        <RouterProvider router={router} />
+      </CurrentUserContextProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 );
