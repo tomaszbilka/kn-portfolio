@@ -12,5 +12,11 @@ module.exports = {
       lastName: 'BoB',
       address: 'Cieszyn',
     },
+    {
+      id: 997,
+      name: 'John',
+      lastName: 'Travolta',
+      address: 'Mexico',
+    },
   ],
 };

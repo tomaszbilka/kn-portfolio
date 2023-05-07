@@ -28,7 +28,7 @@ const GraphqlTask = () => {
     <section className="container">
       <h3>GraphqlTask</h3>
       <NewUser />
-      {data.allUsers.map((user: TUser) => (
+      {data.usersAlias.map((user: TUser) => (
         <User user={user} key={user.id} />
       ))}
     </section>
