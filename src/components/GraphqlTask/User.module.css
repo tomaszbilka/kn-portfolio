@@ -1,0 +1,39 @@
+.wrap {
+  border-radius: 10px;
+  border: 1px solid #000;
+  margin: 5px;
+  padding: 10px 25px;
+  min-width: 180px;
+}
+
+.text {
+  margin-bottom: 10px;
+}
+
+.text span {
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls button {
+  background-color: azure;
+  border-radius: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 3px 5px;
+}
+
+button.delete {
+  background-color: brown;
+  color: #fff;
+}
+
+.error {
+  color: brown;
+  font-size: 14px;
+  margin-top: 5px;
+}

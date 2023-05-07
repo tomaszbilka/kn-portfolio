@@ -1,14 +1,17 @@
 import React, { lazy, Suspense } from 'react';
+import { ApolloProvider } from '@apollo/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import { client } from './graphql/client';
 import { CurrentUserContextProvider } from './context/context';
 import * as Sentry from '@sentry/react';
 import About from './pages/About';
 import App from './App';
 import Details from './components/Details';
 import ErrorPage from './components/Errors/ErrorPage';
+import GraphqlTask from './components/GraphqlTask';
 import Home from './pages/Home';
 
 const Contact = lazy(() => import('./pages/Contact'));
@@ -41,6 +44,7 @@ const router = createBrowserRouter([
       },
       { path: '/about', element: <About /> },
       { path: '/details/:id', element: <Details /> },
+      { path: '/blog', element: <GraphqlTask /> },
     ],
   },
 ]);
@@ -51,10 +55,12 @@ const queryClient = new QueryClient();
 
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <CurrentUserContextProvider>
-        <RouterProvider router={router} />
-      </CurrentUserContextProvider>
-    </QueryClientProvider>
+    <ApolloProvider client={client}>
+      <QueryClientProvider client={queryClient}>
+        <CurrentUserContextProvider>
+          <RouterProvider router={router} />
+        </CurrentUserContextProvider>
+      </QueryClientProvider>
+    </ApolloProvider>
   </React.StrictMode>,
 );

@@ -1,0 +1,24 @@
+.wrap {
+  border-radius: 10px;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  min-width: 180px;
+  padding: 10px 25px;
+}
+
+.wrap input {
+  margin-bottom: 6px;
+}
+
+.wrap button {
+  background-color: bisque;
+  border: none;
+  padding: 4px 0;
+}
+
+.userError {
+  color: brown;
+  font-size: 15px;
+}
