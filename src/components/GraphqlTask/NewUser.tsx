@@ -22,7 +22,7 @@ const NewUser = () => {
   const addNewUserHandler = () => {
     setIsEmpty(false);
     const { name, lastName, address } = newUser;
-    if (name.length === 0 || lastName.length === 0 || address.length === 0) {
+    if (name.length === 0 || lastName?.length === 0 || address?.length === 0) {
       setIsEmpty(true);
       return;
     }
