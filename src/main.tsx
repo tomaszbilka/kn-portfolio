@@ -11,6 +11,7 @@ import About from './pages/About';
 import App from './App';
 import Details from './components/Details';
 import ErrorPage from './components/Errors/ErrorPage';
+import GraphqlTask from './components/GraphqlTask';
 import Home from './pages/Home';
 
 const Contact = lazy(() => import('./pages/Contact'));
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
       },
       { path: '/about', element: <About /> },
       { path: '/details/:id', element: <Details /> },
+      { path: '/blog', element: <GraphqlTask /> },
     ],
   },
 ]);

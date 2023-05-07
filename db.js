@@ -9,8 +9,8 @@ module.exports = {
     {
       id: 995,
       name: 'Bart',
-      lastNem: 'BoB',
-      date: 'Cieszyn',
+      lastName: 'BoB',
+      address: 'Cieszyn',
     },
   ],
 };
