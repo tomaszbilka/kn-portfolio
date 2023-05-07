@@ -1,0 +1,10 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.input {
+  cursor: pointer;
+  margin-right: 5px;
+}
