@@ -1,23 +1,15 @@
 import { useState } from 'react';
-import { useQuery } from '@apollo/client';
 
-import GET_ALL_USERS from '../../graphql/queries/getAllUsers';
+import { useGetAllUsersQuery } from '../../graphql/autogenerate/hooks';
 import NewUser from './NewUser';
 import User from './User';
 
 import styles from './GraphqlTask.module.css';
 
-export type TUser = {
-  address?: string;
-  id?: number;
-  lastName?: string;
-  name: string;
-};
-
 const GraphqlTask = () => {
   const [skipAddress, setSkipAddress] = useState<boolean>(false);
   const [includeLastName, setIncludeLastName] = useState<boolean>(true);
-  const { data, loading, error } = useQuery(GET_ALL_USERS, {
+  const { data, loading, error } = useGetAllUsersQuery({
     notifyOnNetworkStatusChange: true,
     variables: {
       skipAddress,
@@ -61,9 +53,12 @@ const GraphqlTask = () => {
         </div>
       </div>
       <NewUser />
-      {data.usersAlias.map((user: TUser) => (
-        <User user={user} key={user.id} />
-      ))}
+      {data?.usersAlias?.map((user) => {
+        if (user) {
+          // @ts-ignore
+          return <User user={user} key={user?.id} />;
+        }
+      })}
     </section>
   );
 };

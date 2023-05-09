@@ -1,10 +1,8 @@
-import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 
-import { TUser } from './GraphqlTask';
-
+import { User as TUser } from '../../graphql/autogenerate/schemas';
+import { useUpdateUserMutation } from '../../graphql/autogenerate/hooks';
 import styles from './EditUser.module.css';
-import { UPDATE_USER } from '../../graphql/mutations/updateUser';
 
 type TProps = {
   user: TUser;
@@ -20,7 +18,7 @@ const EditUser = ({ isOpen, user }: TProps) => {
     lastName,
     name,
   });
-  const [updateUser, { loading, error }] = useMutation(UPDATE_USER, {
+  const [updateUser, { loading, error }] = useUpdateUserMutation({
     refetchQueries: ['GetAllUsers'],
   });
 
