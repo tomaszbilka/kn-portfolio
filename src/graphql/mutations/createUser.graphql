@@ -1,3 +1,5 @@
+#import "../fragments.graphql"
+
 mutation CreateUser($name: String!, $lastName: String!, $address: String!) {
   createUser(name: $name, lastName: $lastName, address: $address) {
     ...CoreUserFields
