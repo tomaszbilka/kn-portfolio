@@ -9,13 +9,13 @@ hooks:
 
 generates:
   # Get schemas from server
-  src/queries/autogenerate/schemas.tsx:
+  src/graphql/autogenerate/schemas.tsx:
     documents: 'src/graphql/**/**.graphql'
     plugins:
       - typescript
 
   # Create operations based on queries
-  src/queries/autogenerate/operations.tsx:
+  src/graphql/autogenerate/operations.tsx:
     documents: 'src/graphql/**/**.graphql'
     preset: import-types
     presetConfig:
@@ -25,7 +25,7 @@ generates:
 
   # 1. Export GraphQL documents
   # 2. React interface
-  src/queries/autogenerate/hooks.tsx:
+  src/graphql/autogenerate/hooks.tsx:
     documents: 'src/graphql/**/**.graphql'
     preset: import-types
     presetConfig:

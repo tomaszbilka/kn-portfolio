@@ -1,10 +1,10 @@
-import { useMutation } from '@apollo/client';
 import { useState } from 'react';
-import type { TUser } from './GraphqlTask';
 
-import styles from './User.module.css';
-import REMOVE_USER from '../../graphql/mutations/removeUser.graphql';
+import { RemoveUserMutation } from '../../graphql/autogenerate/operations';
+import { User as TUser } from '../../graphql/autogenerate/schemas';
+import { useRemoveUserMutation } from '../../graphql/autogenerate/hooks';
 import EditUser from './EditUser';
+import styles from './User.module.css';
 
 type TProps = {
   user: TUser;
@@ -12,7 +12,7 @@ type TProps = {
 
 const User = ({ user }: TProps) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
-  const [removeUser, { loading, error }] = useMutation(REMOVE_USER, {
+  const [removeUser, { loading, error }] = useRemoveUserMutation({
     refetchQueries: ['GetAllUsers'],
   });
   const { id, name, lastName, address } = user;
@@ -20,6 +20,11 @@ const User = ({ user }: TProps) => {
   const deletUserHandler = () => {
     removeUser({
       variables: { id },
+    }).then((res) => {
+      if (res.data) {
+        const result: RemoveUserMutation = res.data;
+        console.log(`User with id: ${result.removeUser?.id} was deleted!`);
+      }
     });
   };
   return (

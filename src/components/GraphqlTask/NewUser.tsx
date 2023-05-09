@@ -1,12 +1,12 @@
-import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 
-import { TUser } from './GraphqlTask';
-import CREATE_USER from '../../graphql/mutations/createUser.graphql';
+import { User as TUser } from '../../graphql/autogenerate/schemas';
+import { useCreateUserMutation } from '../../graphql/autogenerate/hooks';
 
 import styles from './NewUser.module.css';
 
 const initialValue = {
+  id: '',
   name: '',
   lastName: '',
   address: '',
@@ -15,7 +15,7 @@ const initialValue = {
 const NewUser = () => {
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
   const [newUser, setNewUser] = useState<TUser>(initialValue);
-  const [createUser, { loading, error }] = useMutation(CREATE_USER, {
+  const [createUser, { loading, error }] = useCreateUserMutation({
     refetchQueries: ['GetAllUsers'],
   });
 
