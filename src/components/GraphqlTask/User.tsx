@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { TUser } from './GraphqlTask';
 
 import styles from './User.module.css';
-import { REMOVE_USER } from '../../graphql/mutations/removeUser';
+import { REMOVE_USER } from '../../graphql/mutations/removeUser.graphql';
 import EditUser from './EditUser';
 
 type TProps = {

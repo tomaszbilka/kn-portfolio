@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { TUser } from './GraphqlTask';
 
 import styles from './EditUser.module.css';
-import { UPDATE_USER } from '../../graphql/mutations/updateUser';
+import { UPDATE_USER } from '../../graphql/mutations/updateUser.graphql';
 
 type TProps = {
   user: TUser;

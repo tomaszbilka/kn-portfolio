@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
-import GET_ALL_USERS from '../../graphql/queries/getAllUsers';
+import GET_ALL_USERS from '../../graphql/queries/getAllUsers.graphql';
 import NewUser from './NewUser';
 import User from './User';
 
