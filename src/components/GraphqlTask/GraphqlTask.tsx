@@ -53,9 +53,12 @@ const GraphqlTask = () => {
         </div>
       </div>
       <NewUser />
-      {data?.usersAlias?.map((user) => (
-        <User user={user} key={user?.id} />
-      ))}
+      {data?.usersAlias?.map((user) => {
+        if (user) {
+          // @ts-ignore
+          return <User user={user} key={user?.id} />;
+        }
+      })}
     </section>
   );
 };
