@@ -16,7 +16,7 @@ generates:
 
   # Create operations based on queries
   src/queries/autogenerate/operations.tsx:
-    documents: 'src/graphql/queries/**.graphql'
+    documents: 'src/graphql/**/**.graphql'
     preset: import-types
     presetConfig:
       typesPath: ./schemas
@@ -26,7 +26,7 @@ generates:
   # 1. Export GraphQL documents
   # 2. React interface
   src/queries/autogenerate/hooks.tsx:
-    documents: 'src/queries/**/**.gql'
+    documents: 'src/graphql/**/**.graphql'
     preset: import-types
     presetConfig:
       typesPath: ./operations

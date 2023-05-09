@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 
 import { TUser } from './GraphqlTask';
-import { CREATE_USER } from '../../graphql/mutations/createUser.graphql';
+import CREATE_USER from '../../graphql/mutations/createUser.graphql';
 
 import styles from './NewUser.module.css';
 

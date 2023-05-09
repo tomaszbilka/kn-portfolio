@@ -10,7 +10,9 @@
     "lint": "yarn lint:format && yarn lint:fix ",
     "test": "jest",
     "type-check": "tsc",
-    "jest-preview": "jest-preview"
+    "jest-preview": "jest-preview",
+    "schemas": "graphql-codegen --config codegen.yml",
+    "schemas:watch": "npm run schemas -- --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
