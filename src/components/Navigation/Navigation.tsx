@@ -10,18 +10,21 @@ const Navigation: React.FC = () => {
   return (
     <nav className={styles.container}>
       <picture>
-        <Link to={`/`}>LOGO</Link>
+        <Link to={`/`}>HOME</Link>
       </picture>
       <p>{context?.currentUser}</p>
       <ul className={styles.navContainer}>
         <li>
-          <Link to={`/contact`}>contact</Link>
+          <Link to={`/tasks`}>tasks</Link>
         </li>
         <li>
-          <Link to={`/about`}>about</Link>
+          <Link to={`/optimisticquery`}>OptimisticQuery</Link>
         </li>
         <li>
-          <Link to={'/blog'}>blog</Link>
+          <Link to={'/graphql'}>graphql</Link>
+        </li>
+        <li>
+          <Link to={'/websocket'}>WebSocket</Link>
         </li>
       </ul>
     </nav>

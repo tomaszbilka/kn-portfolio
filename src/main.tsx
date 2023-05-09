@@ -7,14 +7,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { client } from './graphql/client';
 import { CurrentUserContextProvider } from './context/context';
 import * as Sentry from '@sentry/react';
-import About from './pages/About';
 import App from './App';
 import Details from './components/Details';
 import ErrorPage from './components/Errors/ErrorPage';
-import GraphqlTask from './components/GraphqlTask';
+import Graphql from './pages/Graphql';
 import Home from './pages/Home';
+import OptimisticQuery from './pages/OptimisticQuery';
+import Websocket from './pages/Websocket';
 
-const Contact = lazy(() => import('./pages/Contact'));
+const Tasks = lazy(() => import('./pages/Tasks'));
 
 import './main.css';
 Sentry.init({
@@ -35,16 +36,17 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home />, errorElement: <ErrorPage /> },
       {
-        path: '/contact',
+        path: '/tasks',
         element: (
           <Suspense fallback={<p>Lazy loading...</p>}>
-            <Contact />
+            <Tasks />
           </Suspense>
         ),
       },
-      { path: '/about', element: <About /> },
+      { path: '/optimisticquery', element: <OptimisticQuery /> },
       { path: '/details/:id', element: <Details /> },
-      { path: '/blog', element: <GraphqlTask /> },
+      { path: '/graphql', element: <Graphql /> },
+      { path: '/websocket', element: <Websocket /> },
     ],
   },
 ]);

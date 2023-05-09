@@ -4,7 +4,7 @@ import RenderPropsTask from '../components/RenderPropsTask';
 import SpecializedComponentTask from '../components/SpecializedComponentTask';
 import TestingTask from '../components/TestingTask/TestingTask';
 
-const Contact: React.FC = () => {
+const Tasks: React.FC = () => {
   return (
     <>
       <RenderPropsTask />
@@ -16,4 +16,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default Tasks;
