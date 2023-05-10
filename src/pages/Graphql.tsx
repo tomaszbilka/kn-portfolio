@@ -1,7 +1,7 @@
 import GraphqlTask from '../components/GraphqlTask/GraphqlTask';
 
-const Blog = () => {
+const Graphql: React.FC = () => {
   return <GraphqlTask />;
 };
 
-export default Blog;
+export default Graphql;

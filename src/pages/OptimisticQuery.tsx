@@ -1,7 +1,7 @@
 import OptimisticUI from '../components/OptimisticUI/OptimisticUI';
 
-const About: React.FC = () => {
+const OptimisticQuery: React.FC = () => {
   return <OptimisticUI />;
 };
 
-export default About;
+export default OptimisticQuery;
