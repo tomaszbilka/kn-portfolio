@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:8000');
 
 const WebsocketTask: React.FC = () => {
-  const socket = openSocket('http://localhost:8000');
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const [timestamp, setTimestamp] = useState<string>('no timestamp yet');
 
