@@ -22,4 +22,9 @@ https://react-advanced-devpath.netlify.app/
 
 `json-graphql-server db.js --p 3008`
 
+## Start node server
+
+`node server`
+
 > install globally json and graphql server first
+> servers works locally

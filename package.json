@@ -27,7 +27,8 @@
     "react-router-dom": "^6.10.0",
     "react-use": "^17.4.0",
     "react-window": "^1.8.8",
-    "socket.io": "^4.6.1"
+    "socket.io": "^4.6.1",
+    "socket.io-client": "^4.6.1"
   },
   "devDependencies": {
     "@apollo/react-hooks": "^4.0.0",

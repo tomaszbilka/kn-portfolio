@@ -13,9 +13,9 @@ import ErrorPage from './components/Errors/ErrorPage';
 import Graphql from './pages/Graphql';
 import Home from './pages/Home';
 import OptimisticQuery from './pages/OptimisticQuery';
-import Websocket from './pages/Websocket';
 
 const Tasks = lazy(() => import('./pages/Tasks'));
+const Websocket = lazy(() => import('./pages/Websocket'));
 
 import './main.css';
 Sentry.init({
@@ -46,7 +46,14 @@ const router = createBrowserRouter([
       { path: '/optimisticquery', element: <OptimisticQuery /> },
       { path: '/details/:id', element: <Details /> },
       { path: '/graphql', element: <Graphql /> },
-      { path: '/websocket', element: <Websocket /> },
+      {
+        path: '/websocket',
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <Websocket />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);
