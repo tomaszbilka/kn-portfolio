@@ -27,4 +27,5 @@ https://react-advanced-devpath.netlify.app/
 `node server`
 
 > install globally json and graphql server first
+> 
 > servers works locally
